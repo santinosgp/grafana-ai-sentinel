@@ -1,0 +1,19 @@
+{
+  "auth": {
+    "url": "http://grafana.yourcompany.com:3000",
+    "user": "admin",
+    "password": "admin"
+  },
+  "dashboards": [
+    {
+      "name": "elastic",
+      "description": "ElasticSearch monitoring",
+      "env": "pro",
+      "country": "es",
+      "baseUrl": "http://grafana.yourcompany.com:3000/d/abc123/monitoring?var-env={env}&var-country={country}&var-host={host}",
+      "hosts": [
+        "elastic-node[1:3].{env}.{country}.yourcompany.com"
+      ]
+    }
+  ]
+}
