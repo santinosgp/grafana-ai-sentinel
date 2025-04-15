@@ -22,6 +22,10 @@ Customize `config.json`:
 
 ```json
 {
+  "job": {
+    "name": "dedup-monitoring",
+    "description": "Monitoring for Dedup"
+  },
   "auth": {
     "url": "http://grafana.yourcompany.com:3000",
     "user": "admin",
