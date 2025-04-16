@@ -46,7 +46,7 @@ function expandHostPattern(pattern, variables) {
           });
   
           urls.push({
-            name,
+            dashboardName: name,
             description,
             env,
             country,

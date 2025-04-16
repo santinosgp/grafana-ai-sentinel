@@ -1,22 +1,36 @@
 {
   "job": {
-    "name": "dedup-monitoring",
-    "description": "Monitoring for Dedup"
+    "name": "example-monitoring",
+    "description": "Monitoring configuration example for a Grafana-based scraping job"
   },
   "auth": {
-    "url": "http://grafana.yourcompany.com:3000",
-    "user": "admin",
-    "password": "admin"
+    "url": "http://grafana.example.com:3000",
+    "user": "your_username",
+    "password": "your_password"
   },
   "dashboards": [
     {
-      "name": "elastic",
-      "description": "ElasticSearch monitoring",
-      "env": "pro",
-      "country": "es",
-      "baseUrl": "http://grafana.yourcompany.com:3000/d/abc123/monitoring?var-env={env}&var-country={country}&var-host={host}",
+      "name": "Elasticsearch",
+      "description": "- Debian 10 servers with Elasticsearch 7.x installed.\n- JVM memory is preallocated.\n- High RAM usage is normal (up to 90%).\n- High CPU usage is expected under load (up to 90%).\n- SWAP and FS usage are not critical unless over 90%.",
+      "env": "prod",
+      "country": "eu",
+      "baseUrl": "http://grafana.example.com:3000/d/abc123/elasticsearch?orgId=1&var-env={env}&var-country={country}&var-host={host}&from=now-1h&to=now&refresh=30s",
       "hosts": [
-        "elastic-node[1:3].{env}.{country}.yourcompany.com"
+        "es-data-node[1:10].{env}.{country}.example.net",
+        "es-score-node[1:4].{env}.{country}.example.net",
+        "es-master-node[1:3].{env}.{country}.example.net",
+        "es-coordinator[1:2].{env}.{country}.example.net",
+        "es-node[1:2].{env}.{country}.example.net"
+      ]
+    },
+    {
+      "name": "Vector Search (KNN)",
+      "description": "- Servers with KNN engine installed (e.g. OpenSearch or similar).\n- Uses memory outside the JVM for graph operations (e.g. HNSW).\n- Known memory leak mitigated by regular node restarts.\n- RAM/CPU usage below 90% is considered normal.\n- SWAP and FS usage are ignored unless critical (>90%).",
+      "env": "prod",
+      "country": "eu",
+      "baseUrl": "http://grafana.example.com:3000/d/def456/knn-dashboard?orgId=1&var-env={env}&var-country={country}&var-host={host}&from=now-1h&to=now&refresh=30s",
+      "hosts": [
+        "knn-node[1:6].{env}.{country}.example.net"
       ]
     }
   ]

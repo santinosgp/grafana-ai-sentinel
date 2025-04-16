@@ -1,11 +1,27 @@
 {
-  "name": "grafana-metrics-scraper",
+  "name": "grafana-ai-sentinel",
   "version": "1.0.0",
+  "description": "Scrapes Grafana dashboards for metrics and analyzes them using LLMs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "analyze": "node ia-analyze.js"
   },
+  "keywords": [
+    "grafana",
+    "scraping",
+    "puppeteer",
+    "LLM",
+    "monitoring",
+    "devops",
+    "observability"
+  ],
   "dependencies": {
-    "puppeteer": "^21.3.8"
+    "axios": "^1.6.8",
+    "puppeteer": "^21.6.0"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
